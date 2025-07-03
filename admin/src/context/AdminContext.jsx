@@ -50,7 +50,7 @@ const AdminContext = ({children}) => {
 
         
         const fetchProductList = async ()=>{
-            const response = await axios.get(`${import.meta.env}/api/food/list`);
+            const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/food/list`);
             if(response.data.success){
                 return(response.data.data)
             }else{

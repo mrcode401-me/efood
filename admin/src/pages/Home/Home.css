@@ -101,7 +101,7 @@ h1 {
 
 .status.delivered { background: #28a745; }
 .status.outfordelivery { background: #ffc107; color: black; }
-.status.preparing { background: #17a2b8; }
+.status.foodprocessing { background: #17a2b8; }
 
 .info-panels {
   display: flex;

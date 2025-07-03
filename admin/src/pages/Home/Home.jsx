@@ -9,9 +9,15 @@ import { dataContext } from '../../context/AdminContext';
 const Home = () => {
 
 
-  const {fetchProductList} = useContext(dataContext)
+  const {fetchProductList,fetchOrders,companyInfo} = useContext(dataContext)
 
   const [productList,setProductList] = useState([]);
+  const [orderList,setOrderList] = useState([]);
+  const [pendingOrders,setPendingOrders] = useState([]);
+  const [completeOrders,setCompleteOrders] = useState([]);
+  const [todayOrders,setTodayOrders] = useState([]);
+  const [currency,setCurrency] = useState("")
+  const [totalTodayAmount,setTotalTodayAmount] = useState("0")
 
   const orderData = [
   { day: 'Mon', orders: 22 },
@@ -43,12 +49,12 @@ const Home = () => {
     todayRevenue: 6240
   };
 
-  const todaysOrders = [
-    { id: '#1001', name: 'Amit Sharma', items: 3, amount: 520, status: 'Delivered', time: '10:30 AM' },
-    { id: '#1002', name: 'Priya Singh', items: 2, amount: 340, status: 'Preparing', time: '11:10 AM' },
-    { id: '#1003', name: 'Rahul Jain', items: 1, amount: 150, status: 'Delivered', time: '12:00 PM' },
-    { id: '#1004', name: 'Sneha Roy', items: 4, amount: 700, status: 'Out for Delivery', time: '12:45 PM' },
-  ];
+  // const todaysOrders = [
+  //   { id: '#1001', name: 'Amit Sharma', items: 3, amount: 520, status: 'Delivered', time: '10:30 AM' },
+  //   { id: '#1002', name: 'Priya Singh', items: 2, amount: 340, status: 'Preparing', time: '11:10 AM' },
+  //   { id: '#1003', name: 'Rahul Jain', items: 1, amount: 150, status: 'Delivered', time: '12:00 PM' },
+  //   { id: '#1004', name: 'Sneha Roy', items: 4, amount: 700, status: 'Out for Delivery', time: '12:45 PM' },
+  // ];
 
   const topProducts = [
     { name: 'Paneer Butter Masala', sold: 320 },
@@ -64,9 +70,55 @@ const Home = () => {
     "Order #999 marked as Delivered",
   ];
 
-  useEffect(()=>{
-    
-  },[fetchProductList])
+  useEffect(()=>{ 
+      async function LoadData(){
+        const products = await fetchProductList();
+        const orders = await fetchOrders()
+        if(products.length > 0){
+            setProductList(products)
+      }
+    }
+      LoadData()
+      if(Object.keys(companyInfo).length>0){
+        setCurrency(companyInfo.currency)
+      }
+  },[fetchProductList, companyInfo])
+
+  useEffect(()=>{ 
+      async function LoadData(){
+        const orders = await fetchOrders()
+        if(orders.length > 0){
+            setOrderList(orders);
+            const pendingOrder = orders.filter((item)=>{return item.status=== "Food Processing"})
+            setPendingOrders(pendingOrder)
+            const completeOrder = orders.filter((item)=>{return item.status=== "Delivered"})
+            setCompleteOrders(completeOrder)
+
+            const today = new Date();
+            const todayUTC = new Date(
+              Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate())
+            );
+
+            // Get tomorrow's UTC for upper bound
+            const tomorrowUTC = new Date(
+              Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate() + 1)
+            );
+
+            const tOrders = orders.filter(order => {
+              const orderDate = new Date(order.date);
+              return orderDate >= todayUTC && orderDate < tomorrowUTC;
+            });
+            setTodayOrders(tOrders)
+            let totalAmount = 0;
+            const total = tOrders.map((item)=>{
+              totalAmount = totalAmount+parseInt(item.amount);
+              return ;
+            })
+            setTotalTodayAmount(totalAmount)
+        }
+  }
+      LoadData()
+  },[fetchOrders])
 
 
   return (
@@ -76,13 +128,13 @@ const Home = () => {
 
       {/* Summary Cards */}
       <div className="summary-cards">
-        <div className="card">🛒 Products: {summary.totalProducts}</div>
-        <div className="card">📦 Orders: {summary.totalOrders}</div>
-        <div className="card">⏳ Pending: {summary.pendingOrders}</div>
-        <div className="card">✅ Completed: {summary.completedOrders}</div>
+        <div className="card">🛒 Products: {productList.length}</div>
+        <div className="card">📦 Orders: {orderList.length}</div>
+        <div className="card">⏳ Pending: {pendingOrders.length>0?pendingOrders.length:0}</div>
+        <div className="card">✅ Completed: {completeOrders.length>0?completeOrders.length:0}</div>
         <div className="card">👥 Users: {summary.totalUsers}</div>
-        <div className="card highlight">📅 Today’s Orders: {summary.todayOrders}</div>
-        <div className="card highlight">💰 Revenue: ₹{summary.todayRevenue}</div>
+        <div className="card highlight">📅 Today’s Orders: {todayOrders.length>0?todayOrders.length:0}</div>
+        <div className="card highlight">💰 Revenue: {currency}{totalTodayAmount}</div>
       </div>
 
       {/* Chart Placeholder */}
@@ -126,14 +178,14 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {todaysOrders.map(order => (
-              <tr key={order.id}>
-                <td>{order.id}</td>
-                <td>{order.name}</td>
-                <td>{order.items}</td>
-                <td>₹{order.amount}</td>
+            {todayOrders.map((order,index) => (
+              <tr key={index}>
+                <td>#{index+1}</td>
+                <td>{order.address.firstname+" "+order.address.lastname}</td>
+                <td>{order.items.length}</td>
+                <td>{currency}{order.amount}</td>
                 <td><span className={`status ${order.status.replaceAll(' ', '').toLowerCase()}`}>{order.status}</span></td>
-                <td>{order.time}</td>
+                <td>{order.date.split("T")[1].slice(0,5)}</td>
               </tr>
             ))}
           </tbody>
