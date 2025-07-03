@@ -1,0 +1,24 @@
+
+.table{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1.5fr 1fr 0.5fr;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+    padding: 12px 15px;
+    border: 1px solid #cacaca;
+    font-size: 13px;
+}
+
+.table.title{
+    background-color: #f9f9f9;
+}
+#category-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#category-image img{
+    width: 50px;
+}

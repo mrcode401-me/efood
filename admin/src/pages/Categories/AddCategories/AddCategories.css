@@ -1,0 +1,21 @@
+.category-image{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.category-inputs{
+    width: max(40%,200px);
+}
+.category-inputs input{
+    padding: 10px;
+}
+.add-category-from button{
+    background-color: black;
+    max-width: 120px;
+    text-align: center;
+    border-radius: 2px;
+    border:none;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+}

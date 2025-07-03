@@ -1,0 +1,78 @@
+.admin-info{
+    margin-top: 20px;
+    display: flex;
+    gap: 40px;
+    width: full;
+}
+.admin-info div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 25%;
+}
+.admin-info div input{
+    padding: 5px 10px;
+    outline: none;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+.admin-info div button{
+    padding: 8px 5px;
+    outline: none;
+    background-color: black;
+    color: white;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.currency-info {
+    margin-top: 20px;
+}
+.currency-info div{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 50%;
+}
+.currency-info div select{
+    width: 40%;
+    padding: 10px 10px;
+    outline: none;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+.currency-info div button{
+    outline: none;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 7px 8px;
+    margin-bottom: px;
+}
+
+.contact-info{
+    margin-top: 20px;
+    display: flex;
+    gap: 40px;
+    width: full;
+}
+.contact-info div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 25%;
+}
+.contact-info div input{
+    padding: 5px 10px;
+    outline: none;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+.contact-info div button{
+    padding: 8px 5px;
+    outline: none;
+    background-color: black;
+    color: white;
+    width: 50%;
+    border-radius: 5px;
+}

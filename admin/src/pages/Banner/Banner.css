@@ -1,0 +1,48 @@
+.banner-container{
+    display: flex;
+}
+
+.banner-container .add-banner{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 15px;
+}
+
+.banner-name input{
+    padding: 8px;
+    margin: 10px 0;
+    width: 50%;
+}
+.submitBtn{
+    padding: 10px;
+    width: 25%;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+
+.banner-list-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner-list{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.banner-table{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 1fr 0.5fr;
+    padding: 12px 15px;
+    border: 1px solid #cacaca
+}
+.banner-list .banner-table p{
+    text-align: center;
+}

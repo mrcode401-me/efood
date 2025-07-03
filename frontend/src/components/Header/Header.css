@@ -1,0 +1,38 @@
+.header{
+    height: 34vw;
+    margin: 30px auto;
+    position: relative;
+}
+
+.header #banner{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 90vw;
+    height: 100%;
+    background-size: contain;
+}
+
+.header .arrow-btn{
+    z-index: 1;
+    border-radius: 100px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid tomato;
+    background-color: rgb(255, 213, 204);
+    position: absolute;
+    top: 45%;
+    padding: 10px;
+}
+
+.header .arrow-btn:hover{
+    background-color: tomato;
+}
+@media (max-width:750px){
+    .header{
+        height:  50vw;
+    }
+    .arrow-btn{
+        display: none;
+    }
+}

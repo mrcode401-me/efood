@@ -1,0 +1,81 @@
+.add{
+    width: 70%;
+    margin-left: max(5vw,25px);
+    margin-top: 50px;
+    color: #6d6d6d;
+    font-size: 16px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.add form{
+    gap: 20px;
+}
+
+.add-img-upload img{
+    width: 120px;
+}
+
+.add-product-name , .add-product-description{
+    width: max(40%,280px);
+}
+.add-product-name input, .add-product-description textarea{ 
+    padding: 10px;
+}
+.add-category-price{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.add-category-price select, .add-category-price input{
+    max-width: 120px;
+    padding: 10px;
+}
+.add-btn{
+    max-width: 120px;
+    border: none;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 2px;
+}
+.gallery-images{
+    display: flex;
+    gap: 20px;
+}
+.variation-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+}
+.variation-header{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.variation-header{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.variations{
+    width: 85%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3%;
+}
+.variation{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.variation input{
+    width: 100%;
+    padding: 5px;
+    outline: none;
+}

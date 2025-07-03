@@ -1,0 +1,129 @@
+.admin-dashboard {
+  padding: 30px;
+  background-color: #f9f9fb;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card.highlight {
+  background: linear-gradient(135deg, #007cf0, #00dfd8);
+  color: white;
+}
+
+.chart-section {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+}
+
+.order-chart , .revenue-chart {
+  width: 50%; 
+}
+.order-chart , .revenue-chart h2{
+  text-align: center;
+}
+
+.chart-bar {
+  display: flex;
+  align-items: flex-end;
+  height: 150px;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.chart-bar div {
+  background: #007cf0;
+  width: 35px;
+  border-radius: 6px 6px 0 0;
+  position: relative;
+}
+
+.chart-bar span {
+  position: absolute;
+  bottom: -20px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+}
+
+.orders-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.orders-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-section th, .orders-section td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+}
+
+.status.delivered { background: #28a745; }
+.status.outfordelivery { background: #ffc107; color: black; }
+.status.preparing { background: #17a2b8; }
+
+.info-panels {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.top-products, .activity-log {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  min-width: 280px;
+}
+
+.top-products ul, .activity-log ul {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.top-products li, .activity-log li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}

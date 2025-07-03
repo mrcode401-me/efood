@@ -1,0 +1,15 @@
+
+.user-table{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1.5fr 0.5fr;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+    padding: 12px 15px;
+    border: 1px solid #cacaca;
+    font-size: 13px;
+}
+
+.user-table.title{
+    background-color: #f9f9f9;
+}
