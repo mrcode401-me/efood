@@ -127,3 +127,19 @@ h1 {
   margin-bottom: 10px;
   font-size: 14px;
 }
+
+@media (max-width:750px){
+    
+  .chart-section {
+    flex-direction: column;
+    gap: 2vh;
+  }
+  
+  .order-chart , .revenue-chart {
+    width: 100%; 
+    padding: 10px;
+  }
+  .admin-dashboard{
+    padding: 10px;
+  }
+}

@@ -2,7 +2,7 @@
     margin-top: 20px;
     display: flex;
     gap: 40px;
-    width: full;
+    width: 100%;
 }
 .admin-info div{
     display: flex;
@@ -54,7 +54,7 @@
     margin-top: 20px;
     display: flex;
     gap: 40px;
-    width: full;
+    width: 100%;
 }
 .contact-info div{
     display: flex;
@@ -75,4 +75,30 @@
     color: white;
     width: 50%;
     border-radius: 5px;
+}
+
+@media (max-width:750px){
+    .admin-info {
+        flex-direction: column;
+    }
+    .admin-info div{
+        width: 80%;
+    }
+    .currency-info div{
+        width: 100%;
+        flex-direction: column;
+        align-items: start;
+    }
+    .currency-info div select{
+        width: 80%;
+    }
+    .currency-info div button{
+        width: 50%;
+    }
+    .contact-info{
+        flex-direction: column;
+    }
+    .contact-info div{
+        width: 80%;
+    }
 }

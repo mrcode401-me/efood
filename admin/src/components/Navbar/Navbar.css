@@ -48,3 +48,12 @@
     display: flex;
     flex-direction: column;
 }
+
+@media (max-width:750px){
+    
+    .profile-dropdown{
+        left: auto;
+        right: 0;
+    }
+
+}

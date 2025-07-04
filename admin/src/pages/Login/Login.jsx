@@ -14,7 +14,7 @@ const Login = () => {
     }
    async function handleFormSubmit (e){
         e.preventDefault()
-        console.log(form)   
+        // console.log(form)   
         const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/admin/login`,form)
         if(response.data.success){
             toast.success(response.data.message)

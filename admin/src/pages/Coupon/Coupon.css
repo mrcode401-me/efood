@@ -1,20 +1,20 @@
-.pincode-container{
+.coupon-container{
     display: flex;
 }
 
-.pincode-container .add-pincode{
+.coupon-container .add-pincode{
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: left;
     gap: 15px;
 }
-.add-pincode form{
+.add-coupon form{
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-.add-pincode form button{
+.add-coupon form button{
     padding: 10px;
     background-color: black;
     color: white;
@@ -23,35 +23,48 @@
     border-radius: 4px;
 
 }
-.add-pincode .inputs{
+.add-coupon .inputs{
     display:flex;
     flex-direction: column;
     width: 70%;
     gap: 6px;
 }
-.add-pincode input{
+.add-coupon input{
     padding: 10px;
 }
-.pincode-container .pincodes-list{
+.coupon-container .coupons-list{
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.pincode-list-container{
+.coupon-list-container{
     width: 95%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.pincode-table{
+.coupon-table{
     width: 100%;
     display: grid;
     grid-template-columns: 0.5fr 1.4fr 1.4fr 1.4fr 0.5fr;
     padding: 12px 15px;
     border: 1px solid #cacaca
 }
-.pincode-table p{
+.coupon-table p{
     text-align: center;
+}
+
+@media (max-width:750px){
+    .coupon-container{
+        flex-direction: column;
+        gap:5vh;
+    }
+    .add-coupon form button{
+        width: 35vw;
+    }
+    .coupon-container .coupons-list{
+        width: 100%;
+    }
 }

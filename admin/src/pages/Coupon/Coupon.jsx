@@ -33,9 +33,9 @@ const Coupon = () => {
   
 
   return (
-    <div className="pincode-container add">
+    <div className="coupon-container add">
 
-        <div className="add-pincode">
+        <div className="add-coupon">
             <form onSubmit={(e)=>btnSubmitHandler(e)}>
                 <div className='inputs'>
                     <p>Coupon Name</p>
@@ -53,16 +53,16 @@ const Coupon = () => {
             </form>
         </div>
 
-        <div className="pincodes-list">
-                <div className="pincode-list-container">
-                    <div className='pincode-table' style={{backgroundColor:"#f9f9f9"}}>
+        <div className="coupons-list">
+                <div className="coupon-list-container">
+                    <div className='coupon-table' style={{backgroundColor:"#f9f9f9"}}>
                           <p>SR</p>
                           <p>Coupon Name</p>
                           <p>Coupon Code</p>
                           <p>Coupon Amount</p>
                           <p>Action</p>
                     </div>
-                     <div className='pincode-table' >
+                     <div className='coupon-table' >
                           <p>1.</p>
                           <p>cc</p>
                           <p>cc</p>

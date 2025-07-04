@@ -2,11 +2,10 @@
     display: flex;
 }
 
-.pincode-container .add-pincode{
+.add-pincode{
     width: 50%;
     display: flex;
     flex-direction: column;
-    align-items: left;
     gap: 15px;
 }
 .add-pincode form{
@@ -54,4 +53,21 @@
 }
 .pincode-table p{
     text-align: center;
+}
+
+@media (max-width:750px){
+    .pincode-container{
+        flex-direction: column;
+        gap:5vh;
+    }
+    .add-pincode{
+        width: 100%;
+    }
+    .add-pincode form button{
+        width: 35vw;
+    }
+    .pincode-container .pincodes-list{
+        width: 100%;
+    }
+ 
 }
